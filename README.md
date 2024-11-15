@@ -7,3 +7,5 @@ Pareto donoin
 Hej med dig
 
 fuck dig frederik
+SE er seej
+
