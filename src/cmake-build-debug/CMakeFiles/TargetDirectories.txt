@@ -1,4 +1,4 @@
-/mnt/c/Users/david/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/main.dir
-/mnt/c/Users/david/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/main_lib.dir
-/mnt/c/Users/david/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/david/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/williambauer/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/main.dir
+/Users/williambauer/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/main_lib.dir
+/Users/williambauer/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/williambauer/CLionProjects/P1/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
