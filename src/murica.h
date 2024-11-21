@@ -1,1 +1,4 @@
-/* Prototypes goes here Murica */
+typedef struct {
+    int stat;
+    char pref;
+} person;

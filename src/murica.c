@@ -6,10 +6,6 @@
 #define NUMBER_OF_VOTERS 500
 
 // Array[] = cali(A0.9, B0.7, C0.6, D0.5, E0.4)
-typedef struct {
-    int stat;
-    char pref;
-} person;
 
 
 void america() {
@@ -32,3 +28,5 @@ void america() {
 //Udregn antal valgmænd???
 
 //Det store regnestykke
+
+CALI[] = {}
