@@ -16,6 +16,9 @@ typedef struct {
 
 void america();
 
+extern void initialize_states(states all_states);
+
+
 typedef enum {
     ALABAMA,
     ALASKA,
