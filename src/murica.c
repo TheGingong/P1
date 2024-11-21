@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "murica.h"
-
 #include <string.h>
-
+#include "Convert.h"
 
 void america() {
     person x;
@@ -15,10 +14,23 @@ void america() {
         all_states[i].electors = 0;
     }
 
+    int i = 0;
+    do {
+        person current_state = convert_america(i);
+
+        if (current_state.stat == -1) {
+            break;
+        }
+
+        all_states[current_state.stat].votes[current_state.pref]++;
+        i++;
+
+
+    } while(x.stat != -1);
+
     for (int i = 0; i < STATES; i++) { //Beregner alle vindere for alle stater
         all_states[i].winner = calculate_winner(all_states[i].votes);
     }
-
 }
 
 int calculate_winner(const int *array) { //Returnere kandidaten med flest stemmer fra staten
@@ -31,7 +43,6 @@ int calculate_winner(const int *array) { //Returnere kandidaten med flest stemme
     }
     return winner;
 }
-
 
 //Lav et array for hvert stat (evt i et struct), med n antal kandidater.
 

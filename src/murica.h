@@ -1,7 +1,7 @@
 
 #define NUMBER_CANDIDATES 5
 #define STATES 51
-#define NUMBER_OF_VOTERS 500
+#define NUMBER_OF_VOTERS 100
 
 typedef struct {
     int stat;
@@ -14,6 +14,7 @@ typedef struct {
     int winner;
 } states;
 
+void america();
 
 typedef enum {
     ALABAMA,
