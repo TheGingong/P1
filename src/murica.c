@@ -7,13 +7,15 @@
 void america() {
     person x;
     states all_states[STATES];
-    int candidates[NUMBER_CANDIDATES];
+    int candidates_electors[NUMBER_CANDIDATES];
 
 
     for (int i = 0; i<NUMBER_CANDIDATES; i++) {
         memset(all_states[i].votes, 0, sizeof(all_states[i].votes));
         all_states[i].electors = 0;
     }
+
+    all_states[ALABAMA].electors = 9;
 
 
 }
