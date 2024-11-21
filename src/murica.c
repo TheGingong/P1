@@ -10,15 +10,28 @@ void america() {
     int candidates_electors[NUMBER_CANDIDATES];
 
 
-    for (int i = 0; i<NUMBER_CANDIDATES; i++) {
+    for (int i = 0; i < STATES; i++) { //Initiere alle pladser i votes array samt electors til 0
         memset(all_states[i].votes, 0, sizeof(all_states[i].votes));
         all_states[i].electors = 0;
     }
 
-    all_states[ALABAMA].electors = 9;
-
+    for (int i = 0; i < STATES; i++) { //Beregner alle vindere for alle stater
+        all_states[i].winner = calculate_winner(all_states[i].votes);
+    }
 
 }
+
+int calculate_winner(const int *array) { //Returnere kandidaten med flest stemmer fra staten
+    //Tager ikke udgangspunkt i en tie. Hvis det sker, vinder kandidaten med laveste index.
+    int winner = 0;
+    for(int i = 1; i < NUMBER_CANDIDATES; i++) {
+        if(array[i] > array[winner]) {
+            winner = i;
+        }
+    }
+    return winner;
+}
+
 
 //Lav et array for hvert stat (evt i et struct), med n antal kandidater.
 
