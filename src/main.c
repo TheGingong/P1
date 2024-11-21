@@ -6,6 +6,7 @@
 #include "borda.h"
 
 int main(void) {
-    printf("Hsdfsdfsdfellsdfo worsdfsdfld");
+   // printf("Hsdfsdfsdfellsdfo worsdfsdfld");
+    america();
     return 0;
 }
