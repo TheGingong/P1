@@ -1,7 +1,6 @@
-
 #define NUMBER_CANDIDATES 5
-#define STATES 50
-#define NUMBER_OF_VOTERS 500
+#define STATES 51
+#define NUMBER_OF_VOTERS 100
 
 typedef struct {
     int stat;
