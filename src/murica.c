@@ -28,5 +28,3 @@ void america() {
 //Udregn antal valgmænd???
 
 //Det store regnestykke
-
-CALI[] = {}
