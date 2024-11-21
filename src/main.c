@@ -5,6 +5,6 @@
 #include "borda.h"
 
 int main(void) {
-    printf("Hsdfsdfsdfellsdfo worsdfsdfld");
+    borda_count(4,2);
     return 0;
 }
