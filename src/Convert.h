@@ -10,7 +10,8 @@
 
 struct person {
     int stat;
-    char pref;
+    int pref;
 };
 
 struct person convert_america(int i);
+int Lav_tal_om_for_soren(int tal);
