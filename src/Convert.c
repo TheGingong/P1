@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+//test
 struct person convert_america(int i) {
 
 
