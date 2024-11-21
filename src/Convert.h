@@ -6,3 +6,11 @@
 #define CONVERT_H
 
 #endif //CONVERT_H
+
+
+struct person {
+    int stat;
+    char pref;
+};
+
+struct person convert_america(int i);
