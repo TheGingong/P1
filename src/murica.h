@@ -1,4 +1,3 @@
-
 #define NUMBER_CANDIDATES 5
 #define STATES 51
 #define NUMBER_OF_VOTERS 100
@@ -13,11 +12,6 @@ typedef struct {
     int electors;
     int winner;
 } states;
-
-void america();
-
-extern void initialize_states(states all_states);
-
 
 typedef enum {
     ALABAMA,
@@ -73,5 +67,8 @@ typedef enum {
     DISTRICT_OF_COLUMBIA
 } state_names;
 
-void america();
-int calculate_winner(int *array);
+/* Prototyper */
+int calculate_winner(const int *array);
+int america();
+void initialize_states(states all_states[]);
+int assign_electors(states all_states[]);
