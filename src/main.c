@@ -4,9 +4,9 @@
 #include <math.h>
 #include "murica.h"
 #include "borda.h"
+#include "Convert.h"
 
 int main(void) {
-   // printf("Hsdfsdfsdfellsdfo worsdfsdfld");
     america();
     return 0;
 }
