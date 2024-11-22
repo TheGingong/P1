@@ -1,9 +1,9 @@
 #include "borda.h"
 #include <stdio.h>
-#define Number_of_kandidates 4
-#define NUMBER_OF_VOTERS 2
+#include "convert.h"
 
-void borda_count(int number_of_kandidates, int number_of_voters) {
+
+void borda_count(int number_of_kandidates) {
     //initialisere arrays
     char candidate[number_of_kandidates]; //alle mulige kandidater sorteret fra a-z
     int candidate_points[number_of_kandidates]; //gemmer point for hver kandidat
@@ -15,7 +15,7 @@ void borda_count(int number_of_kandidates, int number_of_voters) {
         candidate_points[i] = 0; //tildeler 0 point til hver kandidat
     }
 
-    tildel_point(number_of_voters, voter_preference, number_of_kandidates, candidate_points);
+    tildel_point(voter_preference, number_of_kandidates, candidate_points);
 
     //printer kandidater samt der point
     for (int i = 0; i < number_of_kandidates; i++) {
@@ -24,16 +24,11 @@ void borda_count(int number_of_kandidates, int number_of_voters) {
     winner(candidate_points,candidate, number_of_kandidates);
 }
 
-//placeholder for dave og gakki func
-void convert_test(char* array){
-    for (int i = 0; i<Number_of_kandidates; i++){
-        array[i] = 'A'+i;
-    }
-}
-
-void tildel_point (int number_of_voters, char* voter_preference, int number_of_kandidates, int* candidate_points) {
-    for (int i = 0;i<number_of_voters;i++){
-        convert_test(voter_preference); //gakve func - Tager i mod et array og giver ny vælger pref
+void tildel_point (char* voter_preference, int number_of_kandidates, int* candidate_points) {
+    int i = 0;
+    while (convert_borda(i, voter_preference) !=0){
+        convert_borda(i,voter_preference); //gakve func - Tager i mod et array og giver ny vælger pre
+        i++;
         for (int i = 0, j = number_of_kandidates; i<number_of_kandidates;i++, j--){
             int k = voter_preference[i] - 'A'; //udregner index som point skal tildeles
             candidate_points[k] += j; //tildeler j point (j bliver talt ned for hver gennemløb)

@@ -7,14 +7,14 @@
 #define NUMBER_OF_CANDIDATES 5
 
 
-char* convert_borda(int line_person,char* array_pref) {
+int convert_borda(int line_person,char* array_pref) {
     FILE *file = fopen("text-files/test-tekstil.txt", "r");
     char temp_text_str[MAX_LINE_LENGTH];
     int current_line = 0;
 
     while (fgets(temp_text_str, sizeof(temp_text_str), file) != NULL) {
         if (current_line == line_person) {
-            printf("Line %d: %s\n", line_person, temp_text_str);
+            //printf("Line %d: %s\n", line_person, temp_text_str);
             /*•	%c captures a single character.
             •	%*f skips the floating-point number that follows the character.
             •	%f matches a floating-point number.
@@ -26,12 +26,13 @@ char* convert_borda(int line_person,char* array_pref) {
                 printf("Error");
             }
             fclose(file);
-            return array_pref;
+            return 1;
         }
         current_line++;
     }
     if (current_line < line_person) {
         printf("The file has fewer than %d lines.\n", line_person);
+        return 0;
     }
     fclose(file);
 }
