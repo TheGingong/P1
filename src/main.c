@@ -4,8 +4,9 @@
 #include <math.h>
 #include "murica.h"
 #include "borda.h"
+#include "Convert.h"
 
 int main(void) {
-    borda_count(4,2);
+
     return 0;
 }
