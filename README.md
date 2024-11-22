@@ -3,8 +3,14 @@ P1 Projekt - Retfærdighed i det amerikanske valgsystem
 
 Data i tekstfilen: 4(A0.9 B0.8 C0.7 D0.62 E0.413)
 
-Input til borda count:
+Input til borda_count:
 array[n] = [A,B,C,D,E]
+
+Input til america:
+struct person {
+stat = 0-51;
+pref = 0-n;
+}
 
 GUIDELINE FOR KODESKRIVNING:
 Kode skrives på engelsk
