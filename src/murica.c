@@ -10,9 +10,9 @@ int america() {
     initialize_states(all_states);
 
     // Sætter alle værdier i i structen all_states til 0
-    for (int i = 0; i < NUMBER_CANDIDATES; i++) {
+    for (int i = 0; i < STATES; i++) {
         memset(all_states[i].votes, 0, sizeof(all_states[i].votes));
-        all_states[i].electors = 0;
+        all_states[i].winner = 0;
     }
 
     int index = 0;
