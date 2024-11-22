@@ -11,7 +11,7 @@ int main(void) {
     printf("The winner candidate of the american election is: %c\n\n", america(NUMBER_CANDIDATES));
 
     /* Kalder simulering af et valgsystem som bruger Borda count */
-    borda_count(NUMBER_CANDIDATES);
+    printf("The winner candidate of borda count is: %c", borda_count(NUMBER_CANDIDATES));
 
     return 0;
 }
