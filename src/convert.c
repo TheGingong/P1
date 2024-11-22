@@ -1,10 +1,9 @@
-#include "Convert.h"
+#include "convert.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #define MAX_LINE_LENGTH 40
-#define NUMBER_OF_CANDIDATES 5
 
 
 int convert_borda(int line_person,char* array_pref) {

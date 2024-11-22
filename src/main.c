@@ -4,7 +4,7 @@
 #include <math.h>
 #include "murica.h"
 #include "borda.h"
-#include "Convert.h"
+#include "convert.h"
 #define NUMBER_CANDIDATES 5
 
 int main(void) {

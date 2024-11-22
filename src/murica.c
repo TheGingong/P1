@@ -9,7 +9,7 @@ int america(int number_of_candidates) {
     // Kalder funktion som laver stater og tildeler valgmænd
     initialize_states(all_states);
 
-    // Sætter alle værdier i i structen all_states til 0
+    // Sætter alle værdier i i struct'en all_states til 0
     for (int i = 0; i < STATES; i++) {
         memset(all_states[i].votes, 0, sizeof(all_states[i].votes));
         all_states[i].winner = 0;
