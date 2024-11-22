@@ -13,10 +13,10 @@ Kodekommentar skrives på dansk og akademisk! Det er en del af rapporten så ska
 
 Eksempel på kode:
 
-/* For loop som udskriver en værdi */
-for (int i = 0; i < 5; i++) {
-    printf("%d", i); // Her printes i
-}
+/* For loop som udskriver en værdi */ <br/>
+for (int i = 0; i < 5; i++) {<br/>
+    printf("%d\n", i); // Her printes i<br/>
+}<br/>
 
 HUSKELISTE:
 Husk at lave mellemrum mellem funktion så det kan læses!
