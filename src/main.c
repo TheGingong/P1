@@ -7,6 +7,7 @@
 #include "Convert.h"
 
 int main(void) {
-    america();
+    int winner = america();
+    printf("%d", winner);
     return 0;
 }

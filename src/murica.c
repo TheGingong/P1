@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "murica.h"
 #include <string.h>
+#include "Convert.h"
 
 int america() {
     states all_states[STATES];
@@ -15,8 +16,8 @@ int america() {
     }
 
     int index = 0;
-    while(convert_america(index) != -1) {
-        person current_state = convert_american(index);
+    while(convert_america(index).stat != -1) {
+        struct person current_state = convert_america(index);
         all_states[current_state.stat].votes[current_state.pref]++;
         index++;
     }

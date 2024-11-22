@@ -3,11 +3,6 @@
 #define NUMBER_OF_VOTERS 100
 
 typedef struct {
-    int stat;
-    int pref;
-} person;
-
-typedef struct {
     int votes[NUMBER_CANDIDATES];
     int electors;
     int winner;
