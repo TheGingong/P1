@@ -8,12 +8,7 @@
 #define NUMBER_CANDIDATES 5
 
 int main(void) {
-    //america();
-    //char pref[5];
-    //convert_borda(2,pref);
-    //for (int i = 0; i < 5;i++) {
-    //    printf("%c ",pref[i]);
-    //}
+    printf("%d\n", america(NUMBER_CANDIDATES));
     borda_count(NUMBER_CANDIDATES);
     return 0;
 }

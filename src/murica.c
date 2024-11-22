@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "murica.h"
 #include <string.h>
-#include "Convert.h"
+#include "convert.h"
 
-int america() {
+int america(int number_of_candidates) {
     states all_states[STATES];
 
     // Kalder funktion som laver stater og tildeler valgmænd
@@ -23,16 +23,16 @@ int america() {
     }
 
     for (int i = 0; i < STATES; i++) { // Beregner alle vindere for alle stater
-        all_states[i].winner = calculate_winner(all_states[i].votes);
+        all_states[i].winner = calculate_winner(all_states[i].votes, number_of_candidates);
     }
 
-    return assign_electors(all_states);
+    return assign_electors(all_states, number_of_candidates);
 }
 
-int calculate_winner(const int *array) { // Returnere kandidaten med flest stemmer fra staten
+int calculate_winner(const int *array, int number_of_candidates) { // Returnere kandidaten med flest stemmer fra staten
     // Tager ikke udgangspunkt i en tie. Hvis det sker, vinder kandidaten med laveste index.
     int winner = 0;
-    for(int i = 1; i < NUMBER_CANDIDATES; i++) {
+    for(int i = 1; i < number_of_candidates; i++) {
         if(array[i] > array[winner]) {
             winner = i;
         }
@@ -40,18 +40,14 @@ int calculate_winner(const int *array) { // Returnere kandidaten med flest stemm
     return winner;
 }
 
-int assign_electors(states all_states[]) {
-    int candidates[NUMBER_CANDIDATES];
+int assign_electors(states all_states[], int number_of_candidates) {
+    int candidates[number_of_candidates];
     memset(candidates, 0, sizeof(candidates));
     for (int i = 0; i < STATES; i++) {
         candidates[all_states[i].winner] += all_states[i].electors;
     }
-    for (int i = 0; i<NUMBER_CANDIDATES; i++) {
-        printf("%d ", candidates[i]);
-    }
-    printf("\n");
     // Kald calculate_winner funktionen
-    return calculate_winner(candidates);
+    return calculate_winner(candidates, number_of_candidates);
 }
 
 void initialize_states(states all_states[]) {
