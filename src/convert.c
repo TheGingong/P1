@@ -12,7 +12,9 @@ int convert_borda(int line_person,char* array_pref) {
     char temp_text_str[MAX_LINE_LENGTH]; // Erklærer en temp tekst streng hvor hele linjen fra tekst filen gemmes i
     int current_line = 0; // Erklærer den nuværende linje
 
-    /* while loopet bruger funktionen fgets til blah blah det samme som david det kan han skrive bedre */
+    /* fgets læser max "sizeof(text_string) characters fra file stream -
+    * - og gemmer dem i string-arrayet "text_string"
+    * fgets stopper med at parse text hvis den rammer en newline*/
     while (fgets(temp_text_str, sizeof(temp_text_str), file) != NULL) {
         if (current_line == line_person) { // Tjekker om current line er lig den linje som vi vil returnere tilbage
             /* %c Gemmer en enkelt character kan være hvad som helst i en tekst streng.
