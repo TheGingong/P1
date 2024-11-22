@@ -1,4 +1,4 @@
-    #include "convert.h"
+#include "convert.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +6,7 @@
 #define MAX_LINE_LENGTH 40
 #define NUMBER_OF_CANDIDATES 5
 
-/* convert_borda tager i mod et array af chars og hvilken linjen i text filen den skal sende tilbage i arrayet*/
+/* convert_borda tager i mod et array af chars og hvilken linjen i text filen den skal sende tilbage i arrayet */
 int convert_borda(int line_person,char* array_pref) {
     FILE *file = fopen("text-files/test-tekstil.txt", "r"); // Filen med præferencer åbnes i read mode.
     char temp_text_str[MAX_LINE_LENGTH]; // Erklærer en temp tekst streng hvor hele linjen fra tekst filen gemmes i
@@ -14,7 +14,7 @@ int convert_borda(int line_person,char* array_pref) {
 
     /* fgets læser max "sizeof(text_string) characters fra file stream -
     * - og gemmer dem i string-arrayet "text_string"
-    * fgets stopper med at parse text hvis den rammer en newline*/
+    * fgets stopper med at parse text hvis den rammer en newline */
     while (fgets(temp_text_str, sizeof(temp_text_str), file) != NULL) {
         if (current_line == line_person) { // Tjekker om current line er lig den linje som vi vil returnere tilbage
             /* %c Gemmer en enkelt character kan være hvad som helst i en tekst streng.
@@ -36,7 +36,7 @@ int convert_borda(int line_person,char* array_pref) {
         current_line++;
     }
     if (current_line < line_person) {
-        //printf("The file has fewer than %d lines.\n", line_person); // Hvis der bliver bedt om at kigge på en linje der ikke findes i tekst filen får man denne error besked
+        // printf("The file has fewer than %d lines.\n", line_person); // Hvis der bliver bedt om at kigge på en linje der ikke findes i tekst filen får man denne error besked
         return 0; // returner 0 for fejl
     }
     fclose(file); // Lukker text filen
