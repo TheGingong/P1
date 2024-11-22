@@ -22,6 +22,7 @@ int america(int number_of_candidates) {
         index++;
     }
 
+    /* sdfsdfsdf */
     for (int i = 0; i < STATES; i++) { // Beregner alle vindere for alle stater
         all_states[i].winner = calculate_winner(all_states[i].votes, number_of_candidates);
     }
