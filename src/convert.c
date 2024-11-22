@@ -1,4 +1,4 @@
-#include "convert.h"
+    #include "convert.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,17 +10,17 @@
 int convert_borda(int line_person,char* array_pref) {
     FILE *file = fopen("text-files/test-tekstil.txt", "r"); // Filen med præferencer åbnes i read mode.
     char temp_text_str[MAX_LINE_LENGTH]; // Erklærer en temp tekst streng hvor hele linjen fra tekst filen gemmes i
-    int current_line = 0; // erklærer den nuværende linje
+    int current_line = 0; // Erklærer den nuværende linje
 
     /* while loopet bruger funktionen fgets til blah blah det samme som david det kan han skrive bedre */
     while (fgets(temp_text_str, sizeof(temp_text_str), file) != NULL) {
-        if (current_line == line_person) { // tjekker om current line er lig den linje som vi vil returnere tilbage
-            /* %c gemmer en enkelt character kan være hvad som helst i en tekst streng.
-            * %*f kombinere det at læse en float og så ignorer den med stjernen.
-            * %f gemmer en float værdi.
-            * "*" istedet for at gemme så har stjernen den funktion at ignorer det den læser.
+        if (current_line == line_person) { // Tjekker om current line er lig den linje som vi vil returnere tilbage
+            /* %c Gemmer en enkelt character kan være hvad som helst i en tekst streng.
+            * %*f Kombinere det at læse en float og så ignorer den med stjernen.
+            * %f Gemmer en float værdi.
+            * "*" Istedet for at gemme så har stjernen den funktion at ignorer det den læser.
             *  sscanf kigger i temp_text_str og gør sig brug af de forskellige gemme variabler nævnt ovenfor til at gemme i
-            *  arrayet's forskellige pladser
+            *  Arrayet's forskellige pladser
             *  Hvis ikke den gemmer 5 characters i arrayet giver den fejl kode.
             */
             if (sscanf(temp_text_str, "%*d( %c%*f %c%*f %c%*f %c%*f %c%*f",
@@ -28,16 +28,16 @@ int convert_borda(int line_person,char* array_pref) {
             } else {
                 printf("Error: Could not parse the line.\n"); // printer fejlkoden
             }
-            fclose(file); //lukker text filen
+            fclose(file); //Lukker text filen
             return 1; // returner 1 for succes
         }
         current_line++;
     }
     if (current_line < line_person) {
-        printf("The file has fewer than %d lines.\n", line_person); // Hvis der bliver bedt om at kigge på en linje der ikke findes i tekst filen får man denne error besked
+        //printf("The file has fewer than %d lines.\n", line_person); // Hvis der bliver bedt om at kigge på en linje der ikke findes i tekst filen får man denne error besked
         return 0; // returner 0 for fejl
     }
-    fclose(file); // lukker text filen
+    fclose(file); // Lukker text filen
 }
 
 /* convert_america tager imod en linje på tekstfilen der skal læses.
