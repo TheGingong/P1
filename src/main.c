@@ -7,6 +7,6 @@
 #include "Convert.h"
 
 int main(void) {
-
+    america();
     return 0;
 }
