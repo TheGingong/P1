@@ -3,8 +3,7 @@
 #define Number_of_kandidates 4
 #define NUMBER_OF_VOTERS 2
 
-
-void borda_count(int number_of_kandidates) {
+void borda_count(int number_of_kandidates, int number_of_voters) {
     //initialisere arrays
     char candidate[number_of_kandidates]; //alle mulige kandidater sorteret fra a-z
     int candidate_points[number_of_kandidates]; //gemmer point for hver kandidat
@@ -16,18 +15,13 @@ void borda_count(int number_of_kandidates) {
         candidate_points[i] = 0; //tildeler 0 point til hver kandidat
     }
 
-    for (int i = 0;i<NUMBER_OF_VOTERS;i++){
-        convert_test(voter_preference); //gakve func - Tager i mod et array og giver ny vælger pref
-        for (int i = 0, j = number_of_kandidates; i<number_of_kandidates;i++, j--){
-            int k = voter_preference[i] - 'A'; //udregner index som point skal tildeles
-            candidate_points[k] += j; //tildeler j point (j bliver talt ned for hver gennemløb)
-        }
-    }
+    tildel_point(number_of_voters, voter_preference, number_of_kandidates, candidate_points);
+
     //printer kandidater samt der point
     for (int i = 0; i < number_of_kandidates; i++) {
         printf("%c : %d\n", candidate[i], candidate_points[i]);
     }
-    winner(candidate_points,candidate);
+    winner(candidate_points,candidate, number_of_kandidates);
 }
 
 //placeholder for dave og gakki func
@@ -37,15 +31,29 @@ void convert_test(char* array){
     }
 }
 
-//Sammenligner antal point og printer den med flest
-void winner(int* candidate_points, char* candidate) {
-    int temp = 0;
-    char winner;
-    for (int i = 0; i < Number_of_kandidates;i++) {
-        if (temp < candidate_points[i]) {
-            temp = candidate_points[i];
-            winner = candidate[i];
+void tildel_point (int number_of_voters, char* voter_preference, int number_of_kandidates, int* candidate_points) {
+    for (int i = 0;i<number_of_voters;i++){
+        convert_test(voter_preference); //gakve func - Tager i mod et array og giver ny vælger pref
+        for (int i = 0, j = number_of_kandidates; i<number_of_kandidates;i++, j--){
+            int k = voter_preference[i] - 'A'; //udregner index som point skal tildeles
+            candidate_points[k] += j; //tildeler j point (j bliver talt ned for hver gennemløb)
         }
     }
-    printf("The winner candidate: %c", winner);
+}
+
+//Sammenligner antal point og printer den/dem med flest
+void winner(int* candidate_points, char* candidate, int number_of_kandidates) {
+    int nuværende_winner = 0; //holder styr på den indtil-videre højeste pointscore
+    //modtager hidtil højeste pointscore
+    for (int i = 0; i < number_of_kandidates;i++) {
+        if (nuværende_winner <= candidate_points[i]) {
+            nuværende_winner = candidate_points[i];
+        }
+    }
+    //printer alle kandidater med højeste pointscore
+    for (int i = 0; i < number_of_kandidates; i++) {
+        if (nuværende_winner == candidate_points[i]) {
+            printf("The winner candidate is: %c \n", candidate[i]);
+        }
+    }
 }
