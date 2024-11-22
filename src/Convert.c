@@ -3,40 +3,40 @@
 #include <stdlib.h>
 #include <string.h>
 #include<math.h>
-#define MAX_LINE_LENGTH 256
+#define MAX_LINE_LENGTH 40
 #define NUMBER_OF_CANDIDATES 5
 
 
-char* convert(int line_number) {
+char* convert_borda(int line_person,char* array_pref) {
     FILE *file = fopen("text-files/test-tekstil.txt", "r");
-    char text_string[MAX_LINE_LENGTH];
-    char pref[NUMBER_OF_CANDIDATES];
+    char temp_text_str[MAX_LINE_LENGTH];
     int current_line = 0;
 
-    while (fgets(text_string, sizeof(text_string), file) != NULL) {
-        if (current_line == line_number) {
-            printf("Line %d: %s", line_number, text_string);
+    while (fgets(temp_text_str, sizeof(temp_text_str), file) != NULL) {
+        if (current_line == line_person) {
+            printf("Line %d: %s\n", line_person, temp_text_str);
             /*•	%c captures a single character.
             •	%*f skips the floating-point number that follows the character.
             •	%f matches a floating-point number.
             •	* suppresses assignment (does not store the matched value).
             •	The space between format specifiers ensures that whitespace between groups is ignored.*/
-            if (sscanf(text_string, "%c%*f %c%*f %c%*f %c%*f %c%*f",&pref[0], &pref[1], &pref[2], &pref[3],&pref[4])==5) {
-                printf("%c %c %c %c %c", pref[0],pref[1],pref[2],pref[3],pref[4]);
+            if (sscanf(temp_text_str, "%*d( %c%*f %c%*f %c%*f %c%*f %c%*f",
+                &array_pref[0],&array_pref[1], &array_pref[2], &array_pref[3],&array_pref[4])==5) {
             } else {
                 printf("Error");
             }
-            break; // Exit the loop when the desired line is found
+            fclose(file);
+            return array_pref;
         }
         current_line++;
     }
-
-    if (current_line < line_number) {
-        printf("The file has fewer than %d lines.\n", line_number);
+    if (current_line < line_person) {
+        printf("The file has fewer than %d lines.\n", line_person);
     }
+    fclose(file);
 }
 
-struct person convert_america(int i) {
+struct person convert_america(int line_number) {
     struct person ny_person;
     FILE *file = fopen("text-files/test-tekstil.txt","r");
     if (file == NULL) {
@@ -50,7 +50,7 @@ struct person convert_america(int i) {
     // - og gemmer dem i string-arrayet "text_string"
     // fgets stopper med at parse text hvis den rammer en newline
     while (fgets(text_string, sizeof(text_string), file) != NULL) {
-        if (current_line == i) {
+        if (current_line == line_number) {
             int temp;
             // printf("Line %d: %s", i, text_string);
             // Sscanf det array hvori fgets har parset text dokumentet til
@@ -66,8 +66,8 @@ struct person convert_america(int i) {
         }
         current_line++;
     }
-    if (current_line < i) {
-        printf("The file has fewer than %d lines.\n", i);
+    if (current_line < line_number) {
+        printf("The file has fewer than %d lines.\n", line_number);
     }
 
     fclose(file);

@@ -13,6 +13,6 @@ struct person {
     int pref;
 };
 
-struct person convert_america(int i);
+struct person convert_america(int line_person);
 int Lav_tal_om_for_soren(int tal);
-char* convert(int line_number);
+char* convert_borda(int line_person, char* array_pref);
