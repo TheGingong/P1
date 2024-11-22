@@ -42,9 +42,14 @@ int calculate_winner(const int *array) { // Returnere kandidaten med flest stemm
 
 int assign_electors(states all_states[]) {
     int candidates[NUMBER_CANDIDATES];
+    memset(candidates, 0, sizeof(candidates));
     for (int i = 0; i < STATES; i++) {
         candidates[all_states[i].winner] += all_states[i].electors;
     }
+    for (int i = 0; i<NUMBER_CANDIDATES; i++) {
+        printf("%d ", candidates[i]);
+    }
+    printf("\n");
     // Kald calculate_winner funktionen
     return calculate_winner(candidates);
 }
